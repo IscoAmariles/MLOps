@@ -1,0 +1,14 @@
+# Monitoreo del proyecto (paso 8.2). Grafana se agrega en el paso 21.
+# Levantar con:  docker compose up -d   ->  http://localhost:9090
+services:
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    container_name: green-data-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    extra_hosts:
+      # En Docker Desktop (Windows/Mac) ya existe; en Linux hace falta.
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
