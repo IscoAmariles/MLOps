@@ -1,0 +1,21 @@
+# Entorno virtual y caché de Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Variables de entorno locales
+.env
+
+# Artefactos de MLflow (se generan al entrenar)
+mlruns/
+mlartifacts/
+
+# Log de predicciones generado por la API
+data/monitoring/*.csv
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
