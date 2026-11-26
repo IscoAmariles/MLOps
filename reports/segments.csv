@@ -1,0 +1,21 @@
+Country,Country_Code,Income_Level,Energy_Consumption,Renewable_Energy,Renewable_Share,Environmental_Status,segment
+Argentina,ARG,Upper middle income,300,27,0.09,Critical,1
+Australia,AUS,High income,400,55,0.1375,Moderate,1
+Brazil,BRA,Upper middle income,500,45,0.09,Critical,0
+Canada,CAN,High income,800,200,0.25,Moderate,0
+Chile,CHL,High income,180,60,0.3333333333333333,Green,1
+China,CHN,Upper middle income,3000,300,0.1,Moderate,0
+Colombia,COL,Upper middle income,250,35,0.14,Moderate,1
+"Egypt, Arab Rep.",EGY,Lower middle income,210,6,0.0285714285714285,Critical,1
+France,FRA,High income,650,90,0.1384615384615384,Moderate,0
+Germany,DEU,High income,700,38,0.0542857142857142,Critical,0
+India,IND,Lower middle income,900,18,0.02,Critical,0
+Japan,JPN,High income,850,60,0.0705882352941176,Critical,0
+Kenya,KEN,Lower middle income,25,18,0.72,Green,2
+Mexico,MEX,Upper middle income,420,30,0.0714285714285714,Critical,1
+Norway,NOR,High income,220,200,0.9090909090909092,Green,2
+Peru,PER,Upper middle income,120,44,0.3666666666666666,Green,1
+South Africa,ZAF,Upper middle income,260,8,0.0307692307692307,Critical,1
+Spain,ESP,High income,350,110,0.3142857142857143,Green,1
+United States,USA,High income,1200,20,0.0166666666666666,Critical,0
+Uruguay,URY,High income,40,30,0.75,Green,2

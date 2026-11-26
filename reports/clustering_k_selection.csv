@@ -1,0 +1,17 @@
+variant,k,silhouette,sizes,min_size,valid
+log_con_ingreso,2,0.4984,"[17, 3]",3,True
+log_con_ingreso,3,0.3983,"[9, 8, 3]",3,True
+log_con_ingreso,4,0.4034,"[9, 8, 2, 1]",1,False
+log_con_ingreso,5,0.368,"[7, 7, 3, 2, 1]",1,False
+log_sin_ingreso,2,0.6002,"[16, 4]",4,True
+log_sin_ingreso,3,0.4095,"[9, 8, 3]",3,True
+log_sin_ingreso,4,0.4201,"[7, 7, 3, 3]",3,True
+log_sin_ingreso,5,0.44,"[7, 7, 3, 2, 1]",1,False
+lineal_con_ingreso,2,0.4253,"[17, 3]",3,True
+lineal_con_ingreso,3,0.3717,"[10, 9, 1]",1,False
+lineal_con_ingreso,4,0.4464,"[8, 8, 3, 1]",1,False
+lineal_con_ingreso,5,0.4827,"[8, 8, 2, 1, 1]",1,False
+lineal_sin_ingreso,2,0.6057,"[17, 3]",3,True
+lineal_sin_ingreso,3,0.6489,"[16, 3, 1]",1,False
+lineal_sin_ingreso,4,0.421,"[10, 6, 3, 1]",1,False
+lineal_sin_ingreso,5,0.5149,"[7, 6, 3, 3, 1]",1,False
