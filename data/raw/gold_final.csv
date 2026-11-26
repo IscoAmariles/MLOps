@@ -1,0 +1,21 @@
+Country,Country_Code,Capital_City,Region,Income_Level,Longitude,Latitude,Energy_Consumption,Renewable_Energy,Energy_per_Renewable_Unit,Renewable_Share,Environmental_Status
+Argentina,ARG,Buenos Aires,Latin America & Caribbean,Upper middle income,-58.4173,-34.6118,300,27,10.714285714285714,0.09,Critical
+Australia,AUS,Canberra,East Asia & Pacific,High income,149.129,-35.282,400,55,7.142857142857143,0.1375,Moderate
+Brazil,BRA,Brasilia,Latin America & Caribbean,Upper middle income,-47.9292,-15.7801,500,45,10.869565217391305,0.09,Critical
+Canada,CAN,Ottawa,North America,High income,-75.6919,45.4215,800,200,3.9800995024875623,0.25,Moderate
+Chile,CHL,Santiago,Latin America & Caribbean,High income,-70.6475,-33.475,180,60,2.9508196721311477,0.3333333333333333,Green
+China,CHN,Beijing,East Asia & Pacific,Upper middle income,116.286,40.0495,3000,300,9.966777408637874,0.1,Moderate
+Colombia,COL,Bogota,Latin America & Caribbean,Upper middle income,-74.082,4.60987,250,35,6.944444444444445,0.14,Moderate
+"Egypt, Arab Rep.",EGY,Cairo,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,31.2461,30.0982,210,6,30.0,0.02857142857142857,Critical
+France,FRA,Paris,Europe & Central Asia,High income,2.35097,48.8566,650,90,7.142857142857143,0.13846153846153847,Moderate
+Germany,DEU,Berlin,Europe & Central Asia,High income,13.4115,52.5235,700,38,17.94871794871795,0.054285714285714284,Critical
+India,IND,New Delhi,South Asia,Lower middle income,77.225,28.6353,900,18,47.36842105263158,0.02,Critical
+Japan,JPN,Tokyo,East Asia & Pacific,High income,139.77,35.67,850,60,13.934426229508198,0.07058823529411765,Critical
+Kenya,KEN,Nairobi,Sub-Saharan Africa,Lower middle income,36.8126,-1.27975,25,18,1.3157894736842106,0.72,Green
+Mexico,MEX,Mexico City,Latin America & Caribbean,Upper middle income,-99.1276,19.427,420,30,13.548387096774194,0.07142857142857142,Critical
+Norway,NOR,Oslo,Europe & Central Asia,High income,10.7387,59.9138,220,200,1.0945273631840795,0.9090909090909091,Green
+Peru,PER,Lima,Latin America & Caribbean,Upper middle income,-77.0465,-12.0931,120,44,2.6666666666666665,0.36666666666666664,Green
+South Africa,ZAF,Pretoria,Sub-Saharan Africa,Upper middle income,28.1871,-25.746,260,8,28.88888888888889,0.03076923076923077,Critical
+Spain,ESP,Madrid,Europe & Central Asia,High income,-3.70327,40.4167,350,110,3.1531531531531534,0.3142857142857143,Green
+United States,USA,Washington D.C.,North America,High income,-77.032,38.8895,1200,20,57.142857142857146,0.016666666666666666,Critical
+Uruguay,URY,Montevideo,Latin America & Caribbean,High income,-56.0675,-34.8941,40,30,1.2903225806451613,0.75,Green
