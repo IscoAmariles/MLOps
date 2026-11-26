@@ -7,3 +7,4 @@ Registro cronológico de los planes, decisiones y reportes de ejecución de cada
 | N.º | Fecha | Documento | Rol | Tipo | Estado |
 |---|---|---|---|---|---|
 | 01 | 2026-11-24 | [Reporte del Data Engineer, Sprint 1](2026-11-24_01_reporte-data-engineer-sprint-1_MJGG.md) | Data Engineer (MJGG) | Reporte | En revisión (PR #2) |
+| 02 | 2026-11-25 | [Reporte del ML Engineer, Sprint 1](2026-11-25_02_reporte-ml-engineer-sprint-1_JH.md) | ML Engineer (JH) | Reporte | En revisión |
