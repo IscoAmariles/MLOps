@@ -19,3 +19,6 @@ data/monitoring/*.csv
 .idea/
 .DS_Store
 Thumbs.db
+
+# Backend local del servidor de MLflow (paso 11.1)
+mlflow.db

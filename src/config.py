@@ -61,4 +61,31 @@ MODEL_URI = f"models:/{MODEL_NAME}@{MODEL_ALIAS}"
 
 RANDOM_STATE = 42
 
-# Después del paso 10 el MLE agrega aquí SEGMENT_NAMES (id -> nombre) por PR.
+# --- Segmentación y entrenamiento (MLE, pasos 9-12) --------------------------
+REPORTS_DIR = PROJECT_DIR / "reports"
+
+# Elegidos con `python -m src.clustering` (ver reports/clustering_k_selection.csv).
+CLUSTER_K = 3
+# log1p del consumo + Renewable_Share, sin ingreso: mejor silhouette con k=3 (0,41).
+# income_level se sigue aceptando en /predict (contrato D2), pero no segmenta.
+CLUSTER_VARIANT = "log_sin_ingreso"
+# Mínimo de países por segmento. Con 20 países ningún k=3 llega a 4 (los líderes
+# renovables son 3), así que se fijó en 3: es lo que exige CV estratificada de 3 folds.
+MIN_SEGMENT_SIZE = 3
+CV_FOLDS = 3
+
+# Nombres de negocio por segmento (paso 10). PROPUESTA del MLE: los aprueba el PO.
+# Los ids se ordenan por Renewable_Share medio: 0 = el menos renovable.
+SEGMENT_NAMES = {
+    0: "Grandes consumidores poco renovables",
+    1: "Transición intermedia",
+    2: "Líderes renovables",
+}
+SEGMENT_DESCRIPTIONS = {
+    0: "Consumo alto (≈1000 en promedio) y menos del 10 % renovable; "
+    "p. ej. China, EE. UU., India, Alemania.",
+    1: "Consumo moderado (≈280) con una participación renovable media (≈17 %); "
+    "p. ej. Colombia, México, España, Australia.",
+    2: "Consumo bajo (≈95) cubierto en su mayoría por renovables (≈79 %); "
+    "Noruega, Uruguay y Kenia.",
+}
