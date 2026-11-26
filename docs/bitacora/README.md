@@ -1,0 +1,9 @@
+# Bitácora del proyecto
+
+Registro cronológico de los planes, decisiones y reportes de ejecución de cada rol. Sirve como evidencia de trazabilidad para el equipo Scrum y para el seguimiento del Scrum Master.
+
+**Convención de nombres:** `AAAA-MM-DD_NN_titulo_INICIALES.md`, donde `NN` es un consecutivo único e `INICIALES` identifica a quien registra la entrada. Cada entrada indica fecha, rol e iniciales en su encabezado.
+
+| N.º | Fecha | Documento | Rol | Tipo | Estado |
+|---|---|---|---|---|---|
+| 01 | 2026-11-24 | [Reporte del Data Engineer, Sprint 1](2026-11-24_01_reporte-data-engineer-sprint-1_MJGG.md) | Data Engineer (MJGG) | Reporte | En revisión (PR #2) |

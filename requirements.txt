@@ -1,0 +1,24 @@
+# Python 3.12 (misma versión que el repo ETL).
+# pandas y numpy alineados con el ETL (Laboratorio-MLOps-green-data-etl).
+
+# Datos
+pandas==2.3.2
+numpy==2.3.2
+
+# Modelo (MLE)
+scikit-learn==1.9.1
+mlflow==3.18.0
+
+# API (DE)
+fastapi==0.165.0
+uvicorn==0.54.0
+pydantic==2.14.4
+prometheus-client==0.26.0
+
+# Interfaz (PO)
+streamlit==1.67.0
+requests==2.34.2
+
+# Tests (httpx lo necesita el TestClient de FastAPI)
+pytest==9.2.0
+httpx==0.28.1
