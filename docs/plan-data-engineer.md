@@ -11,7 +11,7 @@ Tu parte del [plan del equipo](plan-equipo.md). Los números de paso son los del
   - Salida: `segment_id` y `segment_name`.
   - Entrada inválida: error 422.
 - **Nombres (D3 y D4):** modelo `green-data-segmentation`, alias `champion`, métricas `green_data_prediction_count_total` y `green_data_segment_predictions_total`.
-- **Facilitas** el Planning 1 y la Review y Retro 1 (pasos 2 y 15) y el Planning 3 (paso 23). También organizas el ensayo de la demo (paso 26).
+- **Ceremonias:** las facilita el Scrum Master (Francisco), que también organiza el ensayo de la demo (paso 26) y revisa y hace merge de los PR. Tú participas en todas.
 
 ## Resumen
 
@@ -27,17 +27,17 @@ Tu parte del [plan del equipo](plan-equipo.md). Los números de paso son los del
 
 Ruta crítica del sprint: **5 → 7.1 → 8.1**. El MLE necesita `config.py` y `load_data()` para empezar el paso 9.
 
-### Paso 2 — Sprint Planning 1 (facilitas)
-- [ ] Llevar la tabla D1–D6 del plan del equipo, cerrar cada una y registrar el resultado en el README.
-- [ ] Verificar con el equipo que el contrato D2 y los nombres D3/D4 estén aceptados antes de salir.
+### Paso 2 — Sprint Planning 1 (facilita SM)
+- [ ] Registrar en el README el resultado de D1–D6 cuando el equipo las cierre.
+- [ ] Confirmar que el contrato D2 y los nombres D3/D4 quedan aceptados antes de salir.
 
 ### Paso 3 — Repo en GitHub (Guía: Paso 19, adelantado)
 - [ ] Crear el repo remoto y conectarlo: `git remote add origin <url>`.
 - [ ] Primer commit en `main` con lo que ya existe (`docs/`).
 - [ ] Crear `dev` desde `main`.
-- [ ] Proteger `main`: exigir PR antes de hacer merge. Invitar a los tres integrantes.
+- [ ] Invitar a los otros tres integrantes. Por decisión del equipo, `main` no se protege (ver la sección 3 del plan del equipo).
 
-**Hecho cuando:** un push directo a `main` es rechazado.
+**Hecho cuando:** los cuatro integrantes tienen acceso de escritura al repo.
 
 ### Paso 4 — Archivos base (Guía: Pasos 0–2)
 Las carpetas ya existen (la estructura está en la sección 5 del plan del equipo).
@@ -101,10 +101,10 @@ Las carpetas ya existen (la estructura está en la sección 5 del plan del equip
 
 ### Paso 11.3 — README base (Guía: Paso 19)
 - [ ] Borrador con requisitos, instalación (venv, `pip install`) y el origen de los datos. El PO lo completa en el paso 24.1.
-- [ ] Revisar las PR abiertas (acuerdos de trabajo del plan del equipo: tú y el MLE se revisan entre sí).
+- La revisión y el merge de los PR los hace el SM.
 
-### Paso 15 — Review y Retro 1 (facilitas)
-- [ ] Preparar la lista de aceptación del PO (ver su plan) y moderar la retro.
+### Paso 15 — Review y Retro 1 (facilita SM)
+- [ ] Mostrar al PO la API en `localhost:8000/docs` (esquema y 422) y Prometheus en `localhost:9090`.
 
 ---
 
@@ -158,10 +158,10 @@ Ruta crítica: **14 (MLE) → 17.1 → 18 → 20.1 → 21**.
 
 ## Sprint 3 (8–11 dic)
 
-### Paso 23 — Sprint Planning 3 (facilitas)
+### Paso 23 — Sprint Planning 3 (facilita SM)
 
 ### Paso 24.2 — CI en verde y tag (Guía: Pasos 19–20)
-- [ ] Merge de `dev` a `main` por PR cuando el CI esté en verde.
+- [ ] Comprobar que el CI está en verde en el último commit de `main`.
 - [ ] Crear el tag de versión sobre ese commit (propuesta: `v1.0.0`) y subirlo: `git tag v1.0.0` y `git push origin v1.0.0`.
 
 ### Paso 24.4 — Exportar el dashboard (Guía: Paso 18)
@@ -173,5 +173,5 @@ Ruta crítica: **14 (MLE) → 17.1 → 18 → 20.1 → 21**.
 ### Paso 25 — Prueba cruzada
 - [ ] Correr todo en una máquina que no sea la tuya siguiendo solo el README. Corregir lo que falle.
 
-### Paso 26 — Ensayo de la demo (organizas; el PO presenta)
-- [ ] Agendar el ensayo, preparar el entorno (todo corriendo antes de empezar) y revisar el orden de arranque.
+### Paso 26 — Ensayo de la demo (organiza SM; el PO presenta)
+- [ ] Tener la API, Prometheus y Grafana corriendo antes de empezar, y revisar con el SM el orden de arranque.

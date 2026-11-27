@@ -11,7 +11,7 @@ Tu parte del [plan del equipo](plan-equipo.md). Los números de paso son los del
   - Salida: `segment_id` y `segment_name`.
   - Entrada inválida: error 422.
 - **Qué decides tú:** aceptas o rechazas en cada Review, confirmas las reglas de negocio y apruebas los nombres de los segmentos.
-- **Ceremonias:** participas en las 6. No facilitas ninguna; aceptas en las Reviews (pasos 15, 22 y 27).
+- **Ceremonias:** participas en las 6. Las facilita el Scrum Master (Francisco); tú aceptas en las Reviews (pasos 15, 22 y 27).
 
 ## Resumen
 
@@ -32,9 +32,9 @@ Tu parte del [plan del equipo](plan-equipo.md). Los números de paso son los del
 
 **Hecho cuando:** el backlog está priorizado y toda historia tiene criterios que otra persona puede comprobar.
 
-### Paso 2 — Sprint Planning 1 (facilita DE)
+### Paso 2 — Sprint Planning 1 (facilita SM)
 Llevas estas tres cosas a la reunión:
-- [ ] **D6 (unidades):** averiguar con el autor del repo ETL qué unidades tienen `Energy_Consumption` y `Renewable_Energy`. El ETL no lo documenta y la pantalla las necesita.
+- [ ] **D6 (unidades):** definir qué unidades tienen `Energy_Consumption` y `Renewable_Energy`. Eres el autor del repo ETL, pero allí no quedaron documentadas y la pantalla las necesita.
 - [ ] **D2 (reglas):** confirmar que `energy_consumption` debe ser > 0 y que `renewable_energy` no puede superar a `energy_consumption`.
 - [ ] **D1:** aceptar que el modelo predice segmentos y no `Environmental_Status`.
 
@@ -76,7 +76,7 @@ Aceptas el sprint si compruebas esto:
 
 ## Sprint 2 (1–5 dic)
 
-### Paso 16 — Sprint Planning 2 (facilita MLE)
+### Paso 16 — Sprint Planning 2 (facilita SM)
 - [ ] Revisar el backlog restante y confirmar el alcance del sprint.
 
 ### Paso 17.2 — `app/streamlit_app.py` (Guía: Paso 13)
@@ -87,7 +87,7 @@ Aceptas el sprint si compruebas esto:
 - [ ] Dejar la URL de la API como constante al inicio del archivo.
 - [ ] Pedir al DE que `streamlit` y `requests` estén en `requirements.txt`.
 - [ ] Puedes avanzar sin esperar al modelo: el contrato D2 ya está fijado y `/health` y el esquema existen desde el paso 11.2. Mientras no haya `/predict`, simula la respuesta.
-- [ ] Ejecutar con `streamlit run app/streamlit_app.py` y abrir una PR a `dev`.
+- [ ] Ejecutar con `streamlit run app/streamlit_app.py` y abrir una PR a `main`.
 
 **Hecho cuando:** la pantalla consulta la API y muestra el segmento.
 
@@ -118,7 +118,7 @@ Prueba estos casos. El segmento esperado lo completas tras el paso 10:
 
 **Hecho cuando:** los casos válidos pasan, los inválidos fallan con un mensaje claro y el log se llena.
 
-### Paso 22 — Review y Retro 2 (facilita MLE, aceptas)
+### Paso 22 — Review y Retro 2 (facilita SM, aceptas)
 - [ ] Hacer una predicción desde Streamlit y comprobar que **aparece en Grafana** (contador total y gráfico por segmento). Puede tardar unos segundos según el intervalo de scrape de Prometheus.
 - [ ] Comprobar que el CI de GitHub está corriendo en cada push.
 
@@ -126,7 +126,7 @@ Prueba estos casos. El segmento esperado lo completas tras el paso 10:
 
 ## Sprint 3 (8–11 dic)
 
-### Paso 23 — Sprint Planning 3 (facilita DE)
+### Paso 23 — Sprint Planning 3 (facilita SM)
 - [ ] Acordar el alcance de cierre: README, guion, prueba cruzada y ensayo.
 
 ### Paso 24.1 — README final y guion de demo (Guía: Paso 19)
@@ -149,9 +149,9 @@ El DE deja el borrador con la instalación (paso 11.3). Tú lo completas:
 - [ ] Clonar el repo en una máquina que no sea la tuya y correr todo solo con el README. No hace falta el ETL ni Airflow.
 - [ ] Anotar cada paso que falle o falte y corregirlo en el README o abrir incidencia.
 
-### Paso 26 — Ensayo de la demo (organiza DE; tú presentas)
+### Paso 26 — Ensayo de la demo (organiza SM; tú presentas)
 - [ ] Presentar siguiendo el guion y cronometrar.
 - [ ] Anotar los tropiezos y ajustar el guion.
 
-### Paso 27 — Review final y Retro (facilita MLE, aceptas)
+### Paso 27 — Review final y Retro (facilita SM, aceptas)
 - [ ] Repasar el backlog completo contra los criterios de aceptación y aceptar o rechazar cada historia.
