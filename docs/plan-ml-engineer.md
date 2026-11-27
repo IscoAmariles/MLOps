@@ -9,7 +9,7 @@ Tu parte del [plan del equipo](plan-equipo.md). Los números de paso son los del
 - **Qué predice el modelo (D1):** el segmento que crea KMeans, no `Environmental_Status`. Esa columna es una regla sobre `Renewable_Share` (≥ 0,30 Green, ≥ 0,10 Moderate, resto Critical): se usa para **comparar** los segmentos, nunca como variable de entrada ni como target.
 - **Contrato de `/predict` (D2):** entra `energy_consumption`, `renewable_energy` e `income_level`; sale `segment_id` y `segment_name`. La API solo llama a tu `predict_segment()`.
 - **Nombres (D3):** modelo y experimento `green-data-segmentation`, alias `champion`, métrica **F1 macro**.
-- **Facilitas** el Planning 2 (paso 16), la Review y Retro 2 (paso 22) y la Review final y Retro (paso 27).
+- **Ceremonias:** las facilita el Scrum Master (Francisco), que también revisa y hace merge de los PR. Tú participas en todas.
 
 ## Cuidado con los datos
 
@@ -84,7 +84,7 @@ Entrada: `load_data()` y `config.py` del DE (pasos 7.1 y 8.1).
 
 ## Sprint 2 (1–5 dic)
 
-### Paso 16 — Sprint Planning 2 (facilitas)
+### Paso 16 — Sprint Planning 2 (facilita SM)
 
 ### Paso 17.3 — `tests/test_api.py` (Guía: Paso 20)
 - [ ] Usar el `TestClient` de FastAPI (necesita `httpx`; confirma con el DE que esté en `requirements.txt`).
@@ -111,7 +111,7 @@ Entrada: `load_data()` y `config.py` del DE (pasos 7.1 y 8.1).
 - [ ] Con MLflow encendido, probar `/predict` en `http://localhost:8000/docs` con un caso de cada segmento.
 - [ ] Si el modelo cargado no coincide con lo que predices localmente, revisar que el alias `champion` apunte a la versión correcta.
 
-### Paso 22 — Review y Retro 2 (facilitas)
+### Paso 22 — Review y Retro 2 (facilita SM)
 
 ---
 
@@ -128,4 +128,4 @@ Entrada: `load_data()` y `config.py` del DE (pasos 7.1 y 8.1).
 ### Paso 25 — Prueba cruzada
 - [ ] Correr todo en una máquina que no sea la tuya siguiendo solo el README. Corregir lo que falle.
 
-### Paso 27 — Review final y Retro (facilitas)
+### Paso 27 — Review final y Retro (facilita SM)

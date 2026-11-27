@@ -1,9 +1,9 @@
 # Plan de trabajo del equipo — MLOps Green Data
 
-Plan para los tres roles del equipo: **Product Owner (PO)**, **Data Engineer (DE)** y **ML Engineer (MLE)**.
+Plan para los cuatro roles del equipo: **Product Owner (PO)**, **Scrum Master (SM)**, **Data Engineer (DE)** y **ML Engineer (MLE)**.
 Usa como contexto y fuente de datos el repo `Laboratorio-MLOps-green-data-etl` (ETL con Arquitectura Medallion).
 
-Sigue los 27 pasos del PDF *Paso a paso del Taller MLOps por rol*. La numeración de pasos y las referencias a la Guía son las de ese PDF. Los pasos se adaptan al dataset de este proyecto y a un equipo de tres personas.
+Sigue los 27 pasos del PDF *Paso a paso del Taller MLOps por rol*. La numeración de pasos y las referencias a la Guía son las de ese PDF. Los pasos se adaptan al dataset de este proyecto y a un equipo de cuatro personas.
 
 | Sprint | Fechas (2026) | Pasos | Objetivo |
 |---|---|---|---|
@@ -17,7 +17,9 @@ Sigue los 27 pasos del PDF *Paso a paso del Taller MLOps por rol*. La numeració
 - [Data Engineer](plan-data-engineer.md)
 - [ML Engineer](plan-ml-engineer.md)
 
-Si el equipo cambia una decisión de la sección 4, se actualiza aquí y en los tres planes.
+El Scrum Master no tiene plan aparte: sus tareas están en la [sección 3](#3-roles) y en las tablas de la sección 5.
+
+Si el equipo cambia una decisión de la sección 4, se actualiza aquí y en los planes por rol.
 
 ---
 
@@ -67,16 +69,20 @@ Lo que muestran los datos (verificado sobre `gold_final.csv`):
 
 | Rol | Foco | Es dueño de |
 |---|---|---|
-| **PO** | Valor de negocio y aceptación | Backlog y tablero, nombres de segmentos, Streamlit, prueba de aceptación, README (arquitectura) y guion de demo |
-| **DE** | Datos, repo, infraestructura y observabilidad | Repo y CI, copia de datos, `config.py`, `data.py`, API, Docker Compose, Prometheus, Grafana |
-| **MLE** | Modelo | `features.py`, `clustering.py`, `train.py`, MLflow, `champion`, `predict.py`, `test_api.py`, justificación del modelo |
+| Rol | Quién | Foco | Es dueño de |
+|---|---|---|---|
+| **PO** | Andres (`AndreLopezRendon`) | Valor de negocio y aceptación | Backlog y tablero, nombres de segmentos, Streamlit, prueba de aceptación, README (arquitectura) y guion de demo |
+| **SM** | Francisco (`IscoAmariles`) | Proceso y seguimiento | Facilitar todas las ceremonias, organizar el ensayo de la demo, revisar y hacer merge de los PR, bitácora |
+| **DE** | Majo (`MajoGGezz`) | Datos, repo, infraestructura y observabilidad | Repo y CI, copia de datos, `config.py`, `data.py`, API, Docker Compose, Prometheus, Grafana |
+| **MLE** | Jean (`jean-h-e`) | Modelo | `features.py`, `clustering.py`, `train.py`, MLflow, `champion`, `predict.py`, `test_api.py`, justificación del modelo |
 
-El equipo no tiene Scrum Master. Sus tareas se reparten así: repo, CI y README base → DE; tablero → PO; `test_api.py` → MLE; facilitación de ceremonias rotativa (Sprint 1 y 3: DE, Sprint 2 y retro final: MLE). El PO acepta en cada Review.
+En el PDF, el Scrum Master también tiene el repo, el CI, el README base, el tablero y `test_api.py`. Este plan se escribió para un equipo sin SM y esas tareas ya estaban repartidas, así que se quedan donde están: repo, CI, README base y tag → DE; tablero → PO; `test_api.py` → MLE. El SM facilita las ceremonias (pasos 2, 15, 16, 22, 23 y 27) y organiza el ensayo de la demo (paso 26). El PO acepta en cada Review.
 
-**Acuerdos de trabajo**
+**Acuerdos de trabajo** (actualizados el 26 nov)
 
-- Cada persona trabaja en una rama propia y abre PR a `dev`. Otro rol aprueba el PR (DE ↔ MLE se revisan entre sí; el PO revisa lo que toque documentación y Streamlit).
-- `main` solo recibe merges desde `dev` al cerrar cada sprint.
+- Cada persona trabaja en una rama propia y abre PR a `main`. La rama `dev` existe, pero es opcional.
+- `main` no se protege. Es un proyecto de asignatura y el SM revisa cada PR antes del merge. El paso 3 del PDF pide protegerla; el equipo decidió no hacerlo.
+- El SM revisa y hace merge de cada PR, y deja la revisión registrada en GitHub (comentario o aprobación). El PO revisa además lo que toque documentación y Streamlit.
 - Lo que necesite infraestructura (MLflow, Docker) se omite o se simula en los tests, para que el CI no dependa de ella. Es el mismo criterio que usa el ETL con `test_dag.py`, que se omite si Airflow no está instalado.
 
 ---
@@ -92,7 +98,7 @@ Cada una trae una propuesta. Si el equipo está de acuerdo, se confirma y se reg
 | D3 | Nombre del modelo y métrica | Modelo registrado y experimento: `green-data-segmentation`. Alias: `champion`. Métrica: F1 macro. | Las clases están desbalanceadas (9/6/5), por eso macro. |
 | D4 | Nombres de métricas Prometheus | `green_data_prediction_count_total` y `green_data_segment_predictions_total` | Reemplazan a `mall_customer_*` del taller. Se decide ahora para que API, Prometheus y Grafana usen el mismo nombre desde el inicio. |
 | D5 | Origen de los datos | Copia de `data/gold/gold_final.csv` (commit `684fba9` del ETL) en `data/raw/gold_final.csv`. | Así el proyecto corre sin Airflow, sin Postgres y sin red. Es necesario para la prueba cruzada (paso 25). |
-| D6 | Unidades de energía | El PO consulta al autor del ETL qué unidades tienen `Energy_Consumption` y `Renewable_Energy`. | El ETL no las documenta y la pantalla de Streamlit las necesita. |
+| D6 | Unidades de energía | El PO, que es el autor del repo ETL, define qué unidades tienen `Energy_Consumption` y `Renewable_Energy`. | El ETL no las documenta y la pantalla de Streamlit las necesita. |
 
 ---
 
@@ -107,11 +113,11 @@ Ruta crítica: 5 → 7.1 → 8.1 → 9 → 10 → 12 → 13 → 14.
 | Paso | Rol | Tarea | Hecho cuando |
 |---|---|---|---|
 | 1 | PO | Escribir el backlog como historias con criterios de aceptación (semilla en la sección 6) y montar el tablero. | Backlog priorizado y cada historia con criterios verificables. |
-| 2 | Todos (facilita DE) | Sprint Planning 1: cerrar D1–D6 (Guía: Pasos 9–12). | Decisiones registradas en el README. |
-| 3 | DE | Crear el repo en GitHub con ramas `main` y `dev` y proteger `main` (Guía: Paso 19, adelantado). | `main` no acepta push directo. |
+| 2 | Todos (facilita SM) | Sprint Planning 1: cerrar D1–D6 (Guía: Pasos 9–12). | Decisiones registradas en el README. |
+| 3 | DE | Crear el repo en GitHub con ramas `main` y `dev` (Guía: Paso 19, adelantado). Por decisión del equipo, `main` no se protege (ver sección 3). | Los cuatro integrantes tienen acceso de escritura al repo. |
 | 4 | DE | Dejar `.gitignore`, `src/features.py` y `tests/test_api.py` como archivos base (Guía: Pasos 0–2). El `.gitignore` excluye `.venv/`, `__pycache__/`, `.env`, `mlruns/`, `mlartifacts/` y los CSV generados en `data/monitoring/`. | Estructura subida a `dev`. |
 | 5 | DE | Copiar `gold_final.csv` a `data/raw/`, llenar `requirements.txt` (mismas versiones que el ETL: `pandas==2.3.2`, `numpy==2.3.2`) y subir todo (Guía: Pasos 3–4). Anotar en el README el commit de origen. | El archivo está en `data/raw` y el origen está documentado. |
-| 6 | Todos | Clonar, crear el entorno virtual e instalar dependencias (Guía: Pasos 1 y 4). Acordar una misma versión de Python (el ETL declara 3.12). | Los tres tienen el entorno funcionando. |
+| 6 | Todos | Clonar, crear el entorno virtual e instalar dependencias (Guía: Pasos 1 y 4). Acordar una misma versión de Python (el ETL declara 3.12). | Los cuatro tienen el entorno funcionando. |
 | 7.1 | DE | `src/config.py` con rutas y parámetros (Guía: Paso 5). Reutilizar el patrón del `config.py` del ETL: `pathlib` y variable `PROJECT_DIR`, sin rutas de Windows. Incluir nombre del modelo, alias, experimento, `random_state` y la URI de MLflow. | Todos los módulos importan sus rutas desde `config.py`. |
 | 7.2 | DE | `docker/prometheus.yml` (Guía: Paso 15). La API corre en el host y Prometheus en Docker, así que el *target* es `host.docker.internal:8000`. | Archivo listo para el compose. |
 | 7.3 | PO | Explorar el Gold y bocetar la pantalla de Streamlit (Guía: Pasos 3 y 13). El boceto incluye el aviso "datos de laboratorio". | Boceto con campos de entrada, resultado y aviso. |
@@ -121,11 +127,11 @@ Ruta crítica: 5 → 7.1 → 8.1 → 9 → 10 → 12 → 13 → 14.
 | 10 | PO + MLE | Revisar centroides y nombrar los segmentos (Guía: Paso 7). Cruzar los segmentos con `Environmental_Status`. Hipótesis a validar, no a asumir: un grupo de grandes consumidores con poca renovable (p. ej. China, EE. UU., India), uno de líderes renovables (p. ej. Noruega, Uruguay, Kenia) y uno intermedio. | Cada segmento tiene nombre de negocio y una frase de descripción, aprobados por el PO. |
 | 11.1 | MLE | Levantar MLflow en `127.0.0.1:5000` (Guía: Paso 8). | La UI abre. |
 | 11.2 | DE | `api/main.py` base con `/health` y el esquema de D2 con sus reglas de validación (Guía: Paso 12, parcial). | `localhost:8000/docs` muestra el esquema y las entradas inválidas devuelven 422. |
-| 11.3 | DE | Borrador del README con la instalación y revisión de PR abiertos (Guía: Paso 19). | README con pasos de instalación. |
+| 11.3 | DE + SM | DE: borrador del README con la instalación. SM: revisar los PR abiertos (Guía: Paso 19). | README con pasos de instalación y PR revisados. |
 | 12 | MLE | `src/train.py`: Logistic Regression, Random Forest y Gradient Boosting, un run de MLflow cada uno con parámetros y F1 macro (Guía: Paso 9). Con 20 filas el conjunto de prueba tendría solo 4–6 países, así que usar validación cruzada estratificada y reportar media ± desviación. | 3 runs comparables en MLflow. |
 | 13 | MLE | Registrar el mejor por F1 con el alias `champion` (Guía: Paso 10). Registrar el `Pipeline` completo (preprocesamiento + modelo) para que la API no reimplemente el escalado. | `models:/green-data-segmentation@champion` se carga sin errores. |
 | 14 | MLE | `src/predict.py` con `predict_segment(energy_consumption, renewable_energy, income_level)` que devuelve id y nombre del segmento (Guía: Paso 11). | Predicción local correcta para un caso de prueba por segmento. |
-| 15 | Todos (facilita DE, acepta PO) | Sprint Review y Retro 1 (Guía: Pasos 8–11). | MLflow muestra los 3 runs y `champion` registrado. |
+| 15 | Todos (facilita SM, acepta PO) | Sprint Review y Retro 1 (Guía: Pasos 8–11). | MLflow muestra los 3 runs y `champion` registrado. |
 
 ### Sprint 2 (1–5 dic): servicio y monitoreo
 
@@ -133,7 +139,7 @@ Ruta crítica: 14 → 17.1 → 18 → 19 → 20.1 → 21 → 22.
 
 | Paso | Rol | Tarea | Hecho cuando |
 |---|---|---|---|
-| 16 | Todos (facilita MLE) | Sprint Planning 2 (Guía: Pasos 12–20). | Compromisos del sprint acordados. |
+| 16 | Todos (facilita SM) | Sprint Planning 2 (Guía: Pasos 12–20). | Compromisos del sprint acordados. |
 | 17.1 | DE | Completar la API: `/predict` (llama a `predict_segment`), `/metrics`, contadores de Prometheus (D4) y log de predicciones (Guía: Paso 12). | Cada `/predict` suma al contador y agrega una fila a `data/monitoring/api_predictions_log.csv`. |
 | 17.2 | PO | `app/streamlit_app.py`: formulario con los 3 campos, nombre del segmento como resultado y aviso de datos de laboratorio (Guía: Paso 13). Puede avanzar contra el contrato D2 antes de que exista el `champion`. | La pantalla llama a la API y muestra el segmento. |
 | 17.3 | MLE | `tests/test_api.py`: `/health`, `/predict` válido y entradas inválidas → 422 (Guía: Paso 20). Con modelo simulado, sin MLflow ni Docker. | Los tests pasan en una máquina limpia. |
@@ -143,7 +149,7 @@ Ruta crítica: 14 → 17.1 → 18 → 19 → 20.1 → 21 → 22.
 | 20.1 | DE | Consultar `green_data_prediction_count_total` y `green_data_segment_predictions_total` en Prometheus (Guía: Paso 17). | Ambas métricas devuelven valores tras las predicciones. |
 | 20.2 | DE | `.github/workflows/ci.yml`: instalar dependencias y correr `pytest` (Guía: Paso 20). | Corre en cada push. |
 | 21 | DE | Conectar Grafana a `http://prometheus:9090` y crear el dashboard con las consultas del taller (Guía: Paso 18). | El dashboard muestra las dos métricas. |
-| 22 | Todos (facilita MLE, acepta PO) | Sprint Review y Retro 2 (Guía: Pasos 12–18). | Una predicción hecha desde Streamlit aparece en Grafana. |
+| 22 | Todos (facilita SM, acepta PO) | Sprint Review y Retro 2 (Guía: Pasos 12–18). | Una predicción hecha desde Streamlit aparece en Grafana. |
 
 ### Sprint 3 (8–11 dic): cierre y demo
 
@@ -151,14 +157,14 @@ Ruta crítica: 24.2 → 25 → 26.
 
 | Paso | Rol | Tarea | Hecho cuando |
 |---|---|---|---|
-| 23 | Todos (facilita DE) | Sprint Planning 3 (Guía: Pasos 19–20). | Compromisos del sprint acordados. |
+| 23 | Todos (facilita SM) | Sprint Planning 3 (Guía: Pasos 19–20). | Compromisos del sprint acordados. |
 | 24.1 | PO | Completar el README con la arquitectura y el orden para correr todo; escribir el guion de la demo (Guía: Paso 19). | Alguien ajeno al equipo puede arrancar el proyecto solo con el README. |
 | 24.2 | DE | Dejar el CI en verde y crear un tag de versión (Guía: Pasos 19–20). | Tag publicado sobre un commit con CI verde. |
 | 24.3 | MLE | Capturas de MLflow y justificación del modelo elegido (Guía: Pasos 9–10). Debe decir con franqueza que hay solo 20 países y que los segmentos salen de las mismas variables que el modelo predice. | Documento con capturas y justificación. |
 | 24.4 | DE | Exportar el dashboard de Grafana a JSON y subirlo al repo, por ejemplo en `docker/` (Guía: Paso 18). | El JSON importa bien en un Grafana limpio. |
-| 25 | Todos | Prueba cruzada: cada uno corre el proyecto completo en una máquina que no es la suya y corrige lo que falle (Guía: Pasos 0–18). No hace falta el ETL ni Airflow gracias a D5. | Los tres corren todo solo con el README. |
-| 26 | DE organiza, PO presenta | Ensayo de la demo (Guía: Paso 14). | Demo completa sin intervenciones fuera de guion. |
-| 27 | Todos (facilita MLE, acepta PO) | Review final y Retro del proyecto. | Backlog aceptado por el PO. |
+| 25 | Todos | Prueba cruzada: cada uno corre el proyecto completo en una máquina que no es la suya y corrige lo que falle (Guía: Pasos 0–18). No hace falta el ETL ni Airflow gracias a D5. | Los cuatro corren todo solo con el README. |
+| 26 | SM organiza, PO presenta | Ensayo de la demo (Guía: Paso 14). | Demo completa sin intervenciones fuera de guion. |
+| 27 | Todos (facilita SM, acepta PO) | Review final y Retro del proyecto. | Backlog aceptado por el PO. |
 
 ---
 
@@ -171,7 +177,7 @@ Punto de partida; el PO ajusta redacción y prioridad.
 3. **Comparar modelos.** Como equipo, quiero ver en MLflow tres modelos comparables por F1 macro y uno registrado como `champion`. *Aceptación:* 3 runs visibles y alias `champion` cargable.
 4. **Monitorear el uso.** Como operador, quiero ver cuántas predicciones se hacen y por segmento. *Aceptación:* una predicción desde Streamlit aparece en Grafana y en `api_predictions_log.csv`.
 5. **Confiar en los cambios.** Como equipo, quiero que cada push corra los tests. *Aceptación:* `ci.yml` corre en cada push y está en verde al cierre.
-6. **Reproducir el proyecto.** Como equipo, quiero correr todo en otra máquina siguiendo el README. *Aceptación:* prueba cruzada exitosa de los tres integrantes.
+6. **Reproducir el proyecto.** Como equipo, quiero correr todo en otra máquina siguiendo el README. *Aceptación:* prueba cruzada exitosa de los cuatro integrantes.
 
 ---
 
